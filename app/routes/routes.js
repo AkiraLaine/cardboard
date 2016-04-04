@@ -2,6 +2,7 @@
 
 var path = process.cwd();
 var User = require('../models/users');
+var Card = require('../models/cards');
 
 module.exports = function (app, passport) {
 
@@ -38,6 +39,19 @@ module.exports = function (app, passport) {
 		.post(function(req,res){
 			console.log(req.body)
 			User.update({"github.id": req.user.github.id}, {$push: {"cards": req.body}}).exec();
+		})
+		
+	app.route("/api/cards")
+		.get(function(req,res){
+			Card.find({}, function(err,cards){
+				res.send(cards)
+			})
+		})
+		.post(function(req,res){
+			var card = new Card();
+			card.title = req.body.title;
+			card.url = req.body.url;
+			card.save();
 		})
 	
 	app.route('/auth/github')
