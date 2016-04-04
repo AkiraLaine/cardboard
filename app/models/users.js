@@ -7,7 +7,8 @@ var User = new Schema({
 	github: {
 		id: String,
 		username: String,
-	}
+	},
+	cards: []
 });
 
 module.exports = mongoose.model('User', User);
