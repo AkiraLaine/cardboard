@@ -10,7 +10,7 @@ $(function(){
     
     $.get("/api/cards", function(cards){
         for(var i in cards){
-            $(".grid").append('<div class="card"><div class="card-image"><img src="' + cards[i].url + '"></div><div class="card-content"><p>' + cards[i].title + '</p><a>' + cards[i].postedBy + '</a></div></div>')
+            $(".grid").append('<div class="card"><div class="card-image"><img src="' + cards[i].url + '"></div><div class="card-content"><p>' + cards[i].title + '</p><a href="' + cards[i].postedBy + '">' + cards[i].postedBy + '</a></div></div>')
         }
        setTimeout(function(){
             $('.grid').masonry({
