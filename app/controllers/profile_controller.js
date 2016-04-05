@@ -2,6 +2,7 @@ $(function(){
     var cards = [];
     
     $.get("/api/user", function(user){
+        $("#user").text(user.github.username)
         $("#profile").text(user.github.username);
         cards = user.cards;
         for(var i in user.cards){
@@ -35,7 +36,7 @@ $(function(){
     
     $("#submit").on("click", function(){
         var data = {title: $("#title").val(), url: $("#url").val()};
-        console.log(data)
+        $("#modal1").closeModal();
         $.post("/api/profile/new", data);
         $.post("/api/cards/", data)
         Materialize.toast("Card added! Refreshing page...", 4000);

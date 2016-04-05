@@ -22,25 +22,30 @@
             </ul>
         </div>
     </nav>
-
-    <div class="row">
-        <div class="input-field col s12 m6 offset-m3">
-            <input id="title" type="text" class="validate">
-            <label for="title">Title of Link</label>
-        </div>
+    
+    <div class="center-align"><h2 id="user" class="thin center" style="margin-bottom:0"></h2><a style="margin: 10px 0" class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
     </div>
-    <div class="row">
-        <div class="input-field col s12 m6 offset-m3">
-            <input id="url" type="url" class="validate">
-            <label for="url">Link to Image</label>
-        </div>
-    </div>
-    <div class="row">
-        <a id="submit" class="btn waves-effect waves-light col s6 offset-s3 m2 offset-m5">Submit</a>
-    </div>
-
+    
     <div class="grid">
 
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Add a new image card</h4>
+            <div class="input-field col s12 m6">
+                <input id="title" type="text" class="validate">
+                <label for="title">Title of Image</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input id="url" type="url" class="validate">
+                <label for="url">Link to Image</label>
+            </div>
+            <a id="submit" class="btn waves-effect waves-light ">Submit</a>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -48,6 +53,11 @@
     <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.js"></script>
     <script src="/public/res/materialize.js"></script>
     <script type="text/javascript" src="/controllers/profile_controller.js"></script>
+     <script>
+        $(document).ready(function(){
+            $('.modal-trigger').leanModal();
+        });
+    </script>
 </body>
 
 </html>
