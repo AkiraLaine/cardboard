@@ -19,6 +19,12 @@ module.exports = function (app, passport) {
 			res.sendFile(path + '/public/index.html');
 		});
 		
+	app.route('/logout')
+		.get(function (req, res) {
+			req.logout();
+			res.redirect('/');
+		});
+		
 	app.route("/profile")
 		.get(isLoggedIn, function(req,res){
 			res.sendFile(path + "/public/profile.html")
@@ -35,12 +41,6 @@ module.exports = function (app, passport) {
 		    	}
 		    });
 		})
-
-	app.route('/logout')
-		.get(function (req, res) {
-			req.logout();
-			res.redirect('/');
-		});
 		
 	app.route("/api/user")
 		.get(function(req, res) {
