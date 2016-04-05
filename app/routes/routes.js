@@ -86,7 +86,7 @@ module.exports = function (app, passport) {
 		
 	app.route("/api/cards/delete")
 		.post(function(req, res) {
-			Card.find(req.data).remove().exec();
+			Card.find(req.body).remove().exec();
 		})
 	
 	app.route('/auth/github')

@@ -9,15 +9,16 @@ $(function(){
     })
     
     $.get("/api/cards", function(cards){
+        console.log(cards)
         for(var i in cards){
             $(".grid").append('<div class="card"><div class="card-image"><img src="' + cards[i].url + '" onerror="src=\'https://unsplash.it/200/?random\'"></div><div class="card-content"><p>' + cards[i].title + '</p><a href="' + cards[i].postedBy + '">' + cards[i].postedBy + '</a></div></div>')
         }
-       setTimeout(function(){
-            $('.grid').masonry({
-                itemSelector: '.card',
-                columnWidth: 200
-            });
-        }, 300);
+       var $grid = $('.grid').imagesLoaded(function() {
+          $grid.masonry({
+            itemSelector: '.card',
+            columnWidth: 200,
+          }); 
+        });
         centerGrid()
     })
     
