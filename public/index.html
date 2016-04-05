@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0 " />
+    <title>Cardboard</title>
+    <link rel="stylesheet" href="/public/res/materialize.css" type="text/css" />
+    <link rel="stylesheet" href="/public/app.css" type="text/css" />
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="brand-logo">Cardboard</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="waves-effect waves-light modal-trigger" href="#modal1">Login</a></li>
+                <li class="hidden profile"><a href="/profile" class="waves-effect waves-light"></a></li>
+                <li class="hidden logout"><a href="/logout" class="waves-effect waves-light">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="grid">
+
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Login to Cardboard</h4>
+            <a href="/auth/github" class="waves-effect waves-light btn grey">Login with GitHub</a>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.js"></script>
+    <script src="/public/res/materialize.js"></script>
+    <script type="text/javascript" src="/controllers/home_controller.js"></script>
+    <script>
+        $('.grid').masonry({
+            itemSelector: '.grid-item',
+            columnWidth: 200
+        });
+        $(document).ready(function(){
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+</body>
+
+</html>

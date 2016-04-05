@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid {
+    max-width: 90%;
+}
+
+.card{
+    width: 190px !important;
+    margin: 5px 5px;
+}
+
+.card img{
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

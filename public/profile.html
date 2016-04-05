@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0 " />
+    <title>Cardboard</title>
+    <link rel="stylesheet" href="/public/res/materialize.css" type="text/css" />
+    <link rel="stylesheet" href="/public/app.css" type="text/css" />
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="brand-logo">Cardboard</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="/profile" id="profile" class="waves-effect waves-light"></a>
+                </li>
+                <li><a href="/logout" class="waves-effect waves-light">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <input id="title" type="text" class="validate">
+            <label for="title">Title of Link</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <input id="url" type="url" class="validate">
+            <label for="url">Link to Image</label>
+        </div>
+    </div>
+    <div class="row">
+        <a id="submit" class="btn waves-effect waves-light col s6 offset-s3 m2 offset-m5">Submit</a>
+    </div>
+
+    <div class="grid">
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.js"></script>
+    <script src="/public/res/materialize.js"></script>
+    <script type="text/javascript" src="/controllers/profile_controller.js"></script>
+</body>
+
+</html>
