@@ -23,6 +23,18 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function(req,res){
 			res.sendFile(path + "/public/profile.html")
 		})
+	
+	app.route("/:user")
+		.get(function(req, res) {
+		    var user = req.params.user;
+		    User.find({"github.username": user}, function(err, docs){
+		    	if(docs.length === 0){
+		    		res.sendFile(path + "/public/index.html")
+		    	} else {
+		    		res.sendFile(path + "/public/user.html");
+		    	}
+		    });
+		})
 
 	app.route('/logout')
 		.get(function (req, res) {
@@ -33,7 +45,18 @@ module.exports = function (app, passport) {
 	app.route("/api/user")
 		.get(function(req, res) {
 		    res.send(req.user);
-		}) 
+		})
+		
+	app.route("/api/getuser")
+		.get(function(req,res){
+			var user = req.query.user;
+			console.log(user)
+			User.find({"github.username": user}, function(err,docs){
+				if(!err){
+					res.send(docs);
+				}
+			})
+		})
 		
 	app.route("/api/profile/new")
 		.post(function(req,res){

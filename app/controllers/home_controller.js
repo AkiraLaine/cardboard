@@ -18,5 +18,10 @@ $(function(){
                 columnWidth: 200
             });
         }, 300);
+        centerGrid()
     })
+    
+    function centerGrid(){
+        $(".grid").css("margin-left", ($(window).width() - $(".grid").width()) / 2 + "px")
+    }
 })
