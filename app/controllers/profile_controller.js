@@ -2,7 +2,7 @@ $(function(){
     $.get("/api/user", function(user){
         $("#profile").text(user.github.username);
         for(var i in user.cards){
-            $(".grid").append('<div class="card"><div class="card-image"><img src="' + user.cards[i].url + '" /><div class="card-content"><p>' + user.cards[i].title + '</p></div></div>')
+            $(".grid").append('<div class="card"><div class="card-image"><img src="' + user.cards[i].url + '" /></div><div class="card-content"><p>' + user.cards[i].title + '</p></div></div>')
         }
         setTimeout(function(){
             $('.grid').masonry({

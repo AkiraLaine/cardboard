@@ -37,8 +37,9 @@ module.exports = function (app, passport) {
 		
 	app.route("/api/profile/new")
 		.post(function(req,res){
-			console.log(req.body)
-			User.update({"github.id": req.user.github.id}, {$push: {"cards": req.body}}).exec();
+			var data = req.body;
+			data.postedBy = req.user.github.username;
+			User.update({"github.id": req.user.github.id}, {$push: {"cards": data}}).exec();
 		})
 		
 	app.route("/api/cards")
@@ -51,6 +52,7 @@ module.exports = function (app, passport) {
 			var card = new Card();
 			card.title = req.body.title;
 			card.url = req.body.url;
+			card.postedBy = req.user.github.username
 			card.save();
 		})
 	
