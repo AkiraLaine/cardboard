@@ -12,9 +12,11 @@ $(function(){
         for(var i in cards){
             $(".grid").append('<div class="card"><div class="card-image"><img src="' + cards[i].url + '"></div><div class="card-content"><p>' + cards[i].title + '</p><a>' + cards[i].postedBy + '</a></div></div>')
         }
-        $('.grid').masonry({
-            itemSelector: '.card',
-            columnWidth: 200
-        });
+       setTimeout(function(){
+            $('.grid').masonry({
+                itemSelector: '.card',
+                columnWidth: 200
+            });
+        }, 300);
     })
 })

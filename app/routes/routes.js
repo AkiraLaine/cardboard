@@ -42,6 +42,11 @@ module.exports = function (app, passport) {
 			User.update({"github.id": req.user.github.id}, {$push: {"cards": data}}).exec();
 		})
 		
+	app.route("/api/profile/delete")
+		.post(function(req, res) {
+			User.update({"github.id": req.user.github.id}, {$pull: {"cards": req.body}}).exec();
+		})
+			
 	app.route("/api/cards")
 		.get(function(req,res){
 			Card.find({}, function(err,cards){
@@ -54,6 +59,11 @@ module.exports = function (app, passport) {
 			card.url = req.body.url;
 			card.postedBy = req.user.github.username
 			card.save();
+		})
+		
+	app.route("/api/cards/delete")
+		.post(function(req, res) {
+			Card.find(req.data).remove().exec();
 		})
 	
 	app.route('/auth/github')
