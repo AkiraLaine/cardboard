@@ -51,10 +51,12 @@
     top: 20px !important;
     max-height: 100%;
     height: auto !important;
-    width: auto !important;
+    width: 750px;
 }
 
 #imageModal img{
     display: block;
     margin: 0 auto;
+    width: 700px;
+    height: 525px;
 }
