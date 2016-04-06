@@ -45,3 +45,15 @@
 .hidden {
     display: none;
 }
+
+#imageModal {
+    text-align: center;
+    top: 10% !important;
+    max-height: 100%;
+    height: auto !important;
+}
+
+#imageModal img{
+    display: block;
+    margin: 0 auto;
+}

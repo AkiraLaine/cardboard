@@ -19,8 +19,16 @@ $(function(){
             columnWidth: 200,
           }); 
         });
+        $("img").on("click", openModal)
         centerGrid()
     })
+    
+    function openModal(){
+        $("#imageModal .modal-content").empty()
+        $("#imageModal").openModal();
+        $("#imageModal .modal-content").append("<img src='" + $(this).attr("src") + "' />" )
+        $("#imageModal .modal-content").append("<p class='flow-text'>" + $(this).parents(".card").find("p").text() + "</p><a href='" + $(this).parents(".card").find("a").attr("href") + "'>" +  $(this).parents(".card").find("a").text() + "</a>")
+    }
     
     function centerGrid(){
         $(".grid").css("margin-left", ($(window).width() - $(".grid").width()) / 2 + "px")
