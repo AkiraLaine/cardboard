@@ -5,7 +5,7 @@ $(function(){
         $("#profile").text(user.github.username);
         cards = user.cards;
         for(var i in user.cards){
-            $(".grid").append('<div class="card"><div class="card-image"><img src="' + user.cards[i].url + '" onerror="src=\'https://unsplash.it/200/?random\'"/><span class="card-title"><i class="material-icons delete" key="' + i + '">delete</i></span></div><div class="card-content"><p>' + user.cards[i].title + '</p></div></div>')
+            $(".grid").append('<div class="card"><div class="card-image"><img src="' + user.cards[i].url + '" onerror="src=\'https://unsplash.it/700/525/?random\'"/><span class="card-title"><i class="material-icons delete" key="' + i + '">delete</i></span></div><div class="card-content"><p>' + user.cards[i].title + '</p></div></div>')
         }
         var $grid = $('.grid').imagesLoaded(function() {
           $grid.masonry({
